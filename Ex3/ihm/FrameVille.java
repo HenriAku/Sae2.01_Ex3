@@ -23,7 +23,6 @@ public class FrameVille extends JFrame
 	public FrameVille(Controleur ctrl)
 	{
 		this.setTitle ("Ajouter Ville");
-		this.setSize  (500, 700);
 		this.setLayout(new BorderLayout());
 
 		this.ctrl = ctrl;
@@ -37,6 +36,7 @@ public class FrameVille extends JFrame
 		this.add(this.panelElement ,BorderLayout.CENTER);
 		this.add(this.panelTabVille,BorderLayout.SOUTH );
 
+		this.setResizable(false);
 		this.setVisible(true);
 		this.pack();
 	}
@@ -52,8 +52,6 @@ public class FrameVille extends JFrame
 			tabDonnees[i][1] = ctrl.getVille(i).getPosX() + "";
 			tabDonnees[i][2] = ctrl.getVille(i).getPosY() + ""; 
 		}
-
-		//spGrilleDonnees.repaint();
 	}
 
 }

@@ -19,7 +19,7 @@ public class FrameMap extends JFrame
 	public FrameMap(Controleur ctrl)
 	{
 		this.setTitle("Map");
-		this.setSize(1075,8250);
+		this.setSize(1050,820);
 
 		this.ctrl = ctrl;
 		this.pannelMap = new PanelMap(ctrl);
