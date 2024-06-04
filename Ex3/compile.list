@@ -10,3 +10,4 @@
 ./ihm/PanelMap.java
 ./ihm/PanelRoute.java
 ./ihm/PanelTabVille.java
+./ihm/GrilleDonneesModel.java
