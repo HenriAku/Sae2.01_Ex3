@@ -37,6 +37,6 @@ public class Route
 	//Methodes toString qui retourne une chaine de caractere
 	public String toString()
 	{
-		return "Route\t" + nbtroncons + "\t" + villeD + "\t" + villeA + "\n";
+		return "Route\t" + nbtroncons + "\t" + villeD.getNumVille() + "\t" + villeA.getNumVille() + "\n";
 	}
 }

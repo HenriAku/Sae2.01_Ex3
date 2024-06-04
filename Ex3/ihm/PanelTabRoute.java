@@ -1,4 +1,5 @@
 package Ex3.ihm;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,30 +14,32 @@ import java.io.IOException;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class PanelTabVille extends JPanel implements ActionListener
+public class PanelTabRoute extends JPanel implements ActionListener
 {
 	private Controleur ctrl ;
-	private FrameVille frame;
+	private FrameRoute frame;
 	private String[]   tabEntete;
 
-	private JTable      tblVille;
-    private JScrollPane spGrilleDonnees;
+	private JButton     btnModif;
+      
+	private JTable            tblRoute;
+    private JScrollPane       spGrilleDonnees;
 	private DefaultTableModel tableModel;
-    private JButton     btnModif;
+    
 
-	public PanelTabVille(Controleur ctrl,FrameVille frame)
+	public PanelTabRoute(Controleur ctrl,FrameRoute frame)
 	{
         this.setLayout(new BorderLayout());
 
 		//Creation des composants
 		this.ctrl 	   = ctrl;
 		this.frame 	   = frame;
-		this.tabEntete = new String[] {"Nom", "PosX", "PosY"};
+		this.tabEntete = new String[] {"nbTronçons", "Ville Départ", "Ville Arrivé"};
 
         this.tableModel      = new DefaultTableModel(this.frame.getTabDonnees(), tabEntete);
-		this.tblVille        = new JTable     (this.tableModel);
-        this.spGrilleDonnees = new JScrollPane( this.tblVille );
-        this.tblVille.setFillsViewportHeight(true);
+		this.tblRoute        = new JTable     (this.tableModel);
+        this.spGrilleDonnees = new JScrollPane( this.tblRoute );
+        this.tblRoute.setFillsViewportHeight(true);
         
         this.btnModif = new JButton("Modifier");
         
@@ -48,17 +51,17 @@ public class PanelTabVille extends JPanel implements ActionListener
 		this.btnModif.addActionListener(this);
 	}
 
-	public int  getLigneSelectioner   (){return this.tblVille.getSelectedRow   ();}
-	public int  getColonneSelectionner(){return this.tblVille.getSelectedColumn();}
+	public int  getLigneSelectioner   (){return this.tblRoute.getSelectedRow   ();}
+	public int  getColonneSelectionner(){return this.tblRoute.getSelectedColumn();}
 
 	public DefaultTableModel getTableModel() {return this.tableModel;}
-	public void              majTabDonnees() {this.tblVille.setModel(new GrilleDonneesModel(ctrl));}
+	public void              majTabDonnees() {this.tblRoute.setModel(new GrilleDonneesModelR(ctrl));}
 
-	public void modifier(Object value, int row, int col) {this.tblVille.setValueAt(value, row, col);}
+	public void modifier(Object value, int row, int col) {this.tblRoute.setValueAt(value, row, col);}
 
 	public void actionPerformed(ActionEvent a)
 	{
-		System.out.println(this.tblVille.getValueAt(0, 0));
+		System.out.println(this.tblRoute.getValueAt(0, 0));
 		try {
 			Scanner scanner; 
 					scanner = new Scanner(new File("Ex3/controleur/Sauvegarde.txt"));
@@ -71,7 +74,7 @@ public class PanelTabVille extends JPanel implements ActionListener
 				String line = scanner.nextLine();
 				String[] tabDonnees = line.split("\t");
 				System.out.println(line);
-				if (!tabDonnees[1].equals(this.tblVille.getValueAt(cpt++, 0))) 
+				if (!tabDonnees[1].equals(this.tblRoute.getValueAt(cpt++, 0))) 
 				{
 					for(int i = 0; i<ctrl.getListeVille().size();i++)
 					{

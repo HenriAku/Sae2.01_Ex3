@@ -32,12 +32,11 @@ public class Controleur
 		new FrameMap(this);
 	}
 
-	// Getters
-	public Ville getVille(int i)
-	{
-		return listeVilles.get(i);
-	}
-	public ArrayList<Ville> getListeVille() {return listeVilles;}
+	// Getteurs
+	public Ville getVille(int i) {return listeVilles.get(i);}
+	public Route getRoute(int i) {return listeRoutes.get(i);}
+	public ArrayList<Ville> getListeVille (){return listeVilles;}
+	public ArrayList<Route> getListeRoutes(){return listeRoutes;}
 
 	public void modifierListeVille(String nomVille, Ville ville)
 	{
@@ -53,7 +52,19 @@ public class Controleur
 		}
 	}
 
-	public ArrayList<Route> getListeRoutes() {return listeRoutes;}
+	public void modifierListeRoute(Ville villeD, Ville villeA, Route route)
+	{
+		System.out.println("Tets1");
+		for(int i = 0; i<listeRoutes.size(); i++)
+		{
+			if(listeRoutes.get(i).getVilleD().equals(villeD) && listeRoutes.get(i).getVilleD().equals(villeA))
+			{
+				System.out.println(listeRoutes.get(i).getVilleA() + "Test2");
+				listeRoutes.add(i, route);
+				System.out.println(listeRoutes.get(i).getVilleA() + "Test3");
+			}
+		}
+	}
 
 	// Ajoute une ville à la liste de villes
 	public void lecture()

@@ -6,9 +6,14 @@
 ./ihm/FrameMap.java
 ./ihm/FrameVille.java
 ./ihm/FrameRoute.java
+
 ./ihm/PanelCarte.java
 ./ihm/PanelElement.java
 ./ihm/PanelMap.java
 ./ihm/PanelRoute.java
+
 ./ihm/PanelTabVille.java
+./ihm/PanelTabRoute.java
+
 ./ihm/GrilleDonneesModel.java
+./ihm/GrilleDonneesModelR.java

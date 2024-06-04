@@ -8,39 +8,45 @@ package Ex3.ihm;
 
 import Ex3.controleur.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.LayoutManager;
 import java.awt.BorderLayout;
 
 public class FrameRoute extends JFrame 
 {
+    private GrilleDonneesModelR table;
 
-
-    private PanelRoute panelRoute;
-    private Controleur ctrl;
+    private PanelTabRoute panelTabRoute;
+    private PanelRoute    panelRoute   ;
+    private Controleur    ctrl         ;
     
-    private JTable tblVille;
+    private JTable      tblVille       ;
     private JScrollPane spGrilleDonnees;
 
     public FrameRoute(Controleur ctrl)
     {
-        this.ctrl = ctrl;
-        this.setTitle("Ajouter Ville");
-        this.setSize(500, 700);
-
+        this.setTitle("Ajouter Route");
         this.setLayout(new BorderLayout());
 
-        this.panelRoute = new PanelRoute(ctrl);
+        //creation des composants
+        this.ctrl = ctrl;
 
-        this.add(this.panelRoute);
-        /*
+        this.table         = new GrilleDonneesModelR(ctrl);
 
-        this.tblVille = new JTable(tabDonnees, tabEntete);
-        this.spGrilleDonnees     = new JScrollPane( this.tblVille );
-        this.tblVille.setFillsViewportHeight(true); 
-        
-        this.add(this.panelElement, BorderLayout.CENTER);
-        this.add(this.spGrilleDonnees, BorderLayout.SOUTH);*/
+        this.panelTabRoute = new PanelTabRoute(ctrl, this);
+        this.panelRoute    = new PanelRoute   (ctrl, this);
+
+        //positionnement des composants
+        this.add(this.panelRoute   , BorderLayout.CENTER);
+        this.add(this.panelTabRoute, BorderLayout.SOUTH );
+
+        this.setResizable(false);
         this.setVisible(true);
+        this.pack();
     }
 
+    public Object[][]        getTabDonnees() {return this.table.getTabDonnees ();}
+    public void              majTabDonnees() {this.panelTabRoute.majTabDonnees();}
+    public DefaultTableModel getTableModel() {return this.panelTabRoute.getTableModel();}
 }

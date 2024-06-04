@@ -17,22 +17,21 @@ public class FrameVille extends JFrame
 	private PanelElement  panelElement ;
 	private PanelTabVille panelTabVille;
 	private Controleur    ctrl;
-
-	private String[][] tabDonnees;
+	private GrilleDonneesModel table;
 
 	public FrameVille(Controleur ctrl)
 	{
 		this.setTitle ("Ajouter Ville");
 		this.setLayout(new BorderLayout());
 
+		//creation des composants
 		this.ctrl = ctrl;
-		this.tabDonnees = new String[15][15];
-		
-		ajouterTabDonnees();
-
+	
+		this.table         = new GrilleDonneesModel(ctrl) ;
 		this.panelElement  = new PanelElement (ctrl, this);
 		this.panelTabVille = new PanelTabVille(ctrl, this);
 		
+		//positionement des composan
 		this.add(this.panelElement ,BorderLayout.CENTER);
 		this.add(this.panelTabVille,BorderLayout.SOUTH );
 
@@ -41,17 +40,8 @@ public class FrameVille extends JFrame
 		this.pack();
 	}
 
-	public String[][] getTabDonnees() {return tabDonnees;}
-	public DefaultTableModel getTableModel() {return this.panelTabVille.getTableModel();}
-    public void majTabDonnees() {this.panelTabVille.majTabDonnees();}
-	public void ajouterTabDonnees()
-	{
-		for(int i = 0; i<ctrl.getListeVille().size(); i++)
-		{
-			tabDonnees[i][0] = ctrl.getVille(i).getNomVille();
-			tabDonnees[i][1] = ctrl.getVille(i).getPosX() + "";
-			tabDonnees[i][2] = ctrl.getVille(i).getPosY() + ""; 
-		}
-	}
+	public Object[][]        getTabDonnees() {return this.table.getTabDonnees ();}
+    public void              majTabDonnees() {this.panelTabVille.majTabDonnees();}
+    public DefaultTableModel getTableModel() {return this.panelTabVille.getTableModel();}
 
 }
