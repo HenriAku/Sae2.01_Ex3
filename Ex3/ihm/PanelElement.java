@@ -13,6 +13,7 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.Dimension;
@@ -77,7 +78,9 @@ public class PanelElement extends JPanel implements ActionListener
         if (e.getSource() == this.btnAdd) 
         {
             this.ctrl.ajouterVille(this.txtNom.getText(),Integer.parseInt(this.txtPosX.getText()), Integer.parseInt(this.txtPosY.getText()));
-            this.fV.ajouterTabDonnees();
+            DefaultTableModel model = this.fV.getTableModel();
+            model.addRow(new Object[]{this.txtNom.getText(), Integer.parseInt(this.txtPosX.getText()), Integer.parseInt(this.txtPosY.getText())});
+            fV.majTabDonnees();
         }
             
         if (e.getSource() == this.btnTer)
