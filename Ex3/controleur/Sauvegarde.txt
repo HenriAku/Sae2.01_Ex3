@@ -10,12 +10,9 @@ Ville	GrosCaca	0	0	9
 Ville	GrosCaca	1000	800	10
 Ville	OUI	99	88	11
 Ville	Lyon	55	5	12
-Route	1	Ville	paris	15	46	2
-	Ville	Nice	60	60	5
+Route	1	2	5
 
-Route	5	Ville	Lyon	20	20	3
-	Ville	paris	15	46	2
+Route	5	3	2
 
-Route	6	Ville	Lyon	66	55	1
-	Ville	Paris	40	40	4
+Route	6	1	4
 
