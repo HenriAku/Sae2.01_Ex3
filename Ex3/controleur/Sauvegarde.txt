@@ -1,17 +1,18 @@
-<<<<<<< HEAD
-Ville	Lyon	66	55	3
+Ville	Lyon	66	55	1
 Ville	paris	15	46	2
-=======
-Ville	Lyon	20	20	1
-Ville	Paris	40	40	2
-Ville	Nice	60	60	3
-Ville	PPPP	898	55	4
-Ville	Yanis	900	100	5
-Ville	Henri	100	100	6
-Ville	GrosCaca	0	0	7
-Ville	GrosCaca	1000	800	7
+Ville	Lyon	20	20	3
+Ville	Paris	40	40	4
+Ville	Nice	60	60	5
+Ville	PPPP	898	55	6
+Ville	Yanis	900	100	7
+Ville	Henri	100	100	8
+Ville	GrosCaca	0	0	9
+Ville	GrosCaca	1000	800	10
+Ville	OUI	99	88	11
+Route	1		15	46	2
 
-Route	1	2	5
-Route	5	3	2
-Route	6	1	4
->>>>>>> 14ab9f8558a7a67d5830b7180305e3e36a5edb69
+Route	5	Ville	Lyon	20	20	3
+	
+
+Route	6	Ville	Lyon	66	55	1
+

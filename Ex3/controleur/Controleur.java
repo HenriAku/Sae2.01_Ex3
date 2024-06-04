@@ -61,7 +61,7 @@ public class Controleur
 		try {
 			// On lit le fichier Sauvegarde.txt
 			Scanner scanner; 
-				scanner = new Scanner(new File("./controleur/Sauvegarde.txt"));
+				scanner = new Scanner(new File("./Ex3/controleur/Sauvegarde.txt"));
 				System.out.println("Scan en cours");
 				
 			while (scanner.hasNextLine()) {
@@ -104,7 +104,7 @@ public class Controleur
 	public void ecriture()
 	{
 		try {
-			FileWriter writer = new FileWriter("./controleur/Sauvegarde.txt");
+			FileWriter writer = new FileWriter("./Ex3/controleur/Sauvegarde.txt");
 			for (int i = 0; i < listeVilles.size(); i++) {
 				writer.write(((Ville)listeVilles.get(i)).toString());
 			}

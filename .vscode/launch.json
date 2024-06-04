@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Controleur",
+            "request": "launch",
+            "mainClass": "Ex3.controleur.Controleur",
+            "projectName": "Sae2.01_Ex3_90870d4c"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
