@@ -5,7 +5,10 @@
  **************************/
 package Ex3.ihm;
 import Ex3.controleur.*;
+import Ex3.ihm.PanelCarte;
 import javax.swing.*;
+
+import java.awt.Panel;
 import java.awt.event.*;
 
 public class PanelMap extends JMenuBar implements ActionListener
@@ -23,6 +26,7 @@ public class PanelMap extends JMenuBar implements ActionListener
 		this.menuItemVille = new JMenuItem("Ville");
 
 		JMenu    menu      = new JMenu   ("Ajouter");
+
 
 		//Ajout dans le menuBar
 		menu.add(this.menuItemRoute);

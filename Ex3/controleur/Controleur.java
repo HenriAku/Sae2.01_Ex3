@@ -53,7 +53,7 @@ public class Controleur
 		}
 	}
 
-	public List getListeRoutes() {return listeRoutes;}
+	public ArrayList<Route> getListeRoutes() {return listeRoutes;}
 
 	// Ajoute une ville à la liste de villes
 	public void lecture()
@@ -61,7 +61,7 @@ public class Controleur
 		try {
 			// On lit le fichier Sauvegarde.txt
 			Scanner scanner; 
-				scanner = new Scanner(new File("Ex3/controleur/Sauvegarde.txt"));
+				scanner = new Scanner(new File("./controleur/Sauvegarde.txt"));
 				System.out.println("Scan en cours");
 				
 			while (scanner.hasNextLine()) {
@@ -81,8 +81,8 @@ public class Controleur
 				else if (tabDonnees[0].equals("Route")) 
 				{
 					int nbtroncons = Integer.parseInt(tabDonnees[1]);
-					Ville villeD = (Ville)listeVilles.get(Integer.parseInt(tabDonnees[2]));
-					Ville villeA = (Ville)listeVilles.get(Integer.parseInt(tabDonnees[3]));
+					Ville villeD = (Ville)listeVilles.get(Integer.parseInt(tabDonnees[2]) - 1);
+					Ville villeA = (Ville)listeVilles.get(Integer.parseInt(tabDonnees[3]) - 1);
 					
 					listeRoutes.add(Route.creerRoute(nbtroncons, villeD, villeA)); // Ajoute une nouvelle route à la liste
 				}
@@ -104,7 +104,7 @@ public class Controleur
 	public void ecriture()
 	{
 		try {
-			FileWriter writer = new FileWriter("Ex3/controleur/Sauvegarde.txt");
+			FileWriter writer = new FileWriter("./controleur/Sauvegarde.txt");
 			for (int i = 0; i < listeVilles.size(); i++) {
 				writer.write(((Ville)listeVilles.get(i)).toString());
 			}

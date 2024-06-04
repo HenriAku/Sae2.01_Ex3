@@ -6,6 +6,7 @@
 ./ihm/FrameMap.java
 ./ihm/FrameVille.java
 ./ihm/FrameRoute.java
+./ihm/PanelCarte.java
 ./ihm/PanelElement.java
 ./ihm/PanelMap.java
 ./ihm/PanelRoute.java
