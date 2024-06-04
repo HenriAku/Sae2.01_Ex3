@@ -9,3 +9,4 @@
 ./ihm/PanelElement.java
 ./ihm/PanelMap.java
 ./ihm/PanelRoute.java
+./ihm/PanelTabVille.java

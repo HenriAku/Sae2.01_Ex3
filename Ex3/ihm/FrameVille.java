@@ -8,42 +8,38 @@ package Ex3.ihm;
 
 import Ex3.controleur.*;
 import javax.swing.*;
-import java.awt.LayoutManager;
-import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 public class FrameVille extends JFrame 
 {
-    private String[] tabEntete = {"Nom", "PosX", "PosY"};
-    private String[][] tabDonnees;
+    private PanelElement  panelElement ;
+    private PanelTabVIlle panelTabVIlle;
+    private Controleur    ctrl;
 
-    private PanelElement panelElement;
-    private Controleur ctrl;
-    
-    private JTable tblVille;
-    private JScrollPane spGrilleDonnees;
+    private String[][] tabDonnees;
 
     public FrameVille(Controleur ctrl)
     {
+        this.setTitle ("Ajouter Ville");
+        this.setSize  (500, 700);
+        this.setLayout(new GridLayout(2, 1));
+
         this.ctrl = ctrl;
         this.tabDonnees = new String[15][15];
-
+        
         ajouterTabDonnees();
-        this.setTitle("Ajouter Ville");
-        this.setSize(500, 700);
-        
-        this.setLayout(new BorderLayout());
 
-        this.panelElement = new PanelElement(ctrl, this);
+        this.panelElement  = new PanelElement (ctrl, this);
+        this.panelTabVIlle = new PanelTabVIlle(ctrl, this);
         
-        this.tblVille = new JTable(tabDonnees, tabEntete);
-        this.spGrilleDonnees     = new JScrollPane( this.tblVille );
-        this.tblVille.setFillsViewportHeight(true); 
-        
-        this.add(this.panelElement, BorderLayout.CENTER);
-        this.add(this.spGrilleDonnees, BorderLayout.SOUTH);
+        this.add(this.panelElement );
+        this.add(this.panelTabVIlle);
+
         this.setVisible(true);
         this.pack();
     }
+
+    public String[][] getTabDonnees() {return tabDonnees;}
 
     public void ajouterTabDonnees()
     {
