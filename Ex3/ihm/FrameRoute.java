@@ -32,16 +32,15 @@ public class FrameRoute extends JFrame
         this.panelRoute = new PanelRoute(ctrl);
 
         this.add(this.panelRoute);
-/*
+        /*
 
         this.tblVille = new JTable(tabDonnees, tabEntete);
         this.spGrilleDonnees     = new JScrollPane( this.tblVille );
         this.tblVille.setFillsViewportHeight(true); 
         
         this.add(this.panelElement, BorderLayout.CENTER);
-      this.add(this.spGrilleDonnees, BorderLayout.SOUTH);*/
+        this.add(this.spGrilleDonnees, BorderLayout.SOUTH);*/
         this.setVisible(true);
-        this.pack();
     }
 
 }
