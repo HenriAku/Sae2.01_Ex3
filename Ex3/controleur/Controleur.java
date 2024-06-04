@@ -39,6 +39,20 @@ public class Controleur
 	}
 	public ArrayList<Ville> getListeVille() {return listeVilles;}
 
+	public void modifierListeVille(String nomVille, Ville ville)
+	{
+		System.out.println("bbbbb");
+		for(int i = 0; i<listeVilles.size(); i++)
+		{
+			if(listeVilles.get(i).getNomVille().equals(nomVille))
+			{
+				System.out.println(listeVilles.get(i).getNomVille());
+				listeVilles.add(i, ville);
+				System.out.println(listeVilles.get(i).getNomVille() + "aaaaaaa");
+			}
+		}
+	}
+
 	public List getListeRoutes() {return listeRoutes;}
 
 	// Ajoute une ville à la liste de villes

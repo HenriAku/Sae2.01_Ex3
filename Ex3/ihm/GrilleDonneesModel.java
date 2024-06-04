@@ -13,7 +13,6 @@ public class GrilleDonneesModel extends AbstractTableModel
 
 	public GrilleDonneesModel (Controleur ctrl)
 	{
-
 		this.tabDonnees = new String[15][15];
 
 		for(int i = 0; i<ctrl.getListeVille().size(); i++)
@@ -24,7 +23,6 @@ public class GrilleDonneesModel extends AbstractTableModel
 		}
 
 		this.tabEntetes = new String[]   {   "Nom"  , "PosX"     , "PosY"};
-
 	}
 
 	public int    getColumnCount()                 { return this.tabEntetes.length;      }
