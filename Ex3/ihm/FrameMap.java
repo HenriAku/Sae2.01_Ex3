@@ -19,20 +19,24 @@ public class FrameMap extends JFrame
 	public FrameMap(Controleur ctrl)
 	{
 		this.setTitle("Map");
-		this.setSize(1050,820);
+		this.setSize(1105,905);
 
 		this.ctrl = ctrl;
-		this.pannelMap = new PanelMap(ctrl);
+		//Creation des composants
+		this.pannelMap  = new PanelMap(ctrl);
 		this.panelCarte = new PanelCarte(ctrl);
 
-		this.add(panelCarte);
+		//Positionnement des composants
+		this.add(panelCarte);  //panel pour le dessin
+		this.add(pannelMap );  //panel Pour les menu
 
-		this.add(pannelMap);
-		this.setJMenuBar( pannelMap );
-
+		this.setJMenuBar(pannelMap); 
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setVisible(true);
 	}
+
+	//Methodes pour refresh le Panel Carte (le dessin des villes et routes)
+	public void majIhm() {panelCarte.majIhm();}
 }

@@ -39,9 +39,10 @@ public class FrameVille extends JFrame
 		this.setVisible(true);
 		this.pack();
 	}
-
-	public Object[][]        getTabDonnees() {return this.table.getTabDonnees ();}
-    public void              majTabDonnees() {this.panelTabVille.majTabDonnees();}
+	
+	public String[]          getTabEntetes() {return this.table.getTabEntetes ();} //Methodes qui retourne un tableau String nom des colonne 
+	public Object[][]        getTabDonnees() {return this.table.getTabDonnees ();} //Methode qui retourne un tableau d'objet (info des villes)
+    public void              majTabDonnees() {this.panelTabVille.majTabDonnees();} //Methode pour mettre a jour les info du tableau 
     public DefaultTableModel getTableModel() {return this.panelTabVille.getTableModel();}
 
 }

@@ -1,8 +1,8 @@
 
 /**************************
- * Rougeolle Henri
- * Yachir    Yanis
- * Bouquet   Jules
+ * @auther Rougeolle Henri
+ * @auther Yachir    Yanis
+ * @auther Bouquet   Jules
  **************************/
 
 package Ex3.controleur;
@@ -17,20 +17,28 @@ import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.ArrayList;
 
-
 public class Controleur 
 {
 	private Ville ville;
 	private Route route;
+	
+	private FrameMap fMap;
+	private FrameRoute fR;
+	private String sFichierImage;
 
 	private ArrayList<Ville> listeVilles = new ArrayList<>(); // Liste des villes
 	private ArrayList<Route> listeRoutes = new ArrayList<>(); // Liste des routes
 
 	public Controleur()
 	{
+		//chemin d'acces de base 
+		this.sFichierImage = "./Ex3/controleur/Sauvegarde.txt";
 		this.lecture();
-		new FrameMap(this);
+		fMap = new FrameMap(this);
 	}
+
+	//Methode pour refresh la frame
+	public void majIhm(){fMap.majIhm();}
 
 	// Getteurs
 	public Ville getVille(int i) {return listeVilles.get(i);}
@@ -38,41 +46,41 @@ public class Controleur
 	public ArrayList<Ville> getListeVille (){return listeVilles;}
 	public ArrayList<Route> getListeRoutes(){return listeRoutes;}
 
+	public String getFichierImage(){ return this.sFichierImage;}
+	//setteur
+	public void   setFichierImage(String fic) 
+	{ 
+		this.sFichierImage = fic; 
+		this.lecture();
+		this.ecriture();
+
+		this.majIhm();		
+	}
+
+	//Methodes pour modifier la liste des ville 
 	public void modifierListeVille(String nomVille, Ville ville)
 	{
-		System.out.println("bbbbb");
 		for(int i = 0; i<listeVilles.size(); i++)
 		{
+			//check si dans la list une ville a le meme nom donner en paramettre
 			if(listeVilles.get(i).getNomVille().equals(nomVille))
 			{
-				System.out.println(listeVilles.get(i).getNomVille());
+				//enleve de la list et l'ajoute la nouvelle
+				listeVilles.remove(i);
 				listeVilles.add(i, ville);
-				System.out.println(listeVilles.get(i).getNomVille() + "aaaaaaa");
+			
+				return;
 			}
 		}
 	}
 
-	public void modifierListeRoute(Ville villeD, Ville villeA, Route route)
-	{
-		System.out.println("Tets1");
-		for(int i = 0; i<listeRoutes.size(); i++)
-		{
-			if(listeRoutes.get(i).getVilleD().equals(villeD) && listeRoutes.get(i).getVilleD().equals(villeA))
-			{
-				System.out.println(listeRoutes.get(i).getVilleA() + "Test2");
-				listeRoutes.add(i, route);
-				System.out.println(listeRoutes.get(i).getVilleA() + "Test3");
-			}
-		}
-	}
-
-	// Ajoute une ville à la liste de villes
+	// Methodes pour ajoute une ville à la liste de villes
 	public void lecture()
 	{
 		try {
 			// On lit le fichier Sauvegarde.txt
 			Scanner scanner; 
-				scanner = new Scanner(new File("./Ex3/controleur/Sauvegarde.txt"));
+				scanner = new Scanner(new File(this.sFichierImage));
 				System.out.println("Scan en cours");
 				
 			while (scanner.hasNextLine()) {
@@ -100,28 +108,19 @@ public class Controleur
 			}
 			scanner.close();
 		} 
-		catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		for (int i = 0; i < listeVilles.size(); i++) {
-			System.out.println(listeVilles.get(i));
-		}
-		for (int i = 0; i < listeRoutes.size(); i++) {
-			System.out.println(listeRoutes.get(i));
-		}
+		catch (FileNotFoundException e) {e.printStackTrace();}
 	}
 
-	// Écrit les données dans le fichier Sauvegarde.txt
+	// methodes pour écrit les données (Liste des Ville et Route) dans le fichier Sauvegarde.txt
 	public void ecriture()
 	{
 		try {
 			FileWriter writer = new FileWriter("./Ex3/controleur/Sauvegarde.txt");
-			for (int i = 0; i < listeVilles.size(); i++) {
+			for (int i = 0; i < listeVilles.size(); i++) 
 				writer.write(((Ville)listeVilles.get(i)).toString());
-			}
-			for (int i = 0; i < listeRoutes.size(); i++) {
+
+			for (int i = 0; i < listeRoutes.size(); i++) 
 				writer.write(((Route)listeRoutes.get(i)).toString());
-			}
 			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -132,7 +131,8 @@ public class Controleur
 	public boolean ajouterVille(String nom, int x, int y)
 	{
 		Ville ville = Ville.CreerVille(nom, x, y);
-		if (ville != null) {
+		if (ville != null) 
+		{
 			listeVilles.add(ville);
 			return true;
 		}
@@ -143,14 +143,14 @@ public class Controleur
 	public boolean ajouterRoute(int nbtroncons, Ville villeD, Ville villeA)
 	{
 		Route route = Route.creerRoute(nbtroncons, villeD, villeA);
-		if (route != null) {
+		if (route != null) 
+		{
 			listeRoutes.add(route);
 			return true;
 		}
 		return false;
 	}
 	
-
 	public static void main(String[] args) 
 	{
 		new Controleur();

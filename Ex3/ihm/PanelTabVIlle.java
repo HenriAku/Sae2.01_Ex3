@@ -31,9 +31,8 @@ public class PanelTabVille extends JPanel implements ActionListener
 		//Creation des composants
 		this.ctrl 	   = ctrl;
 		this.frame 	   = frame;
-		this.tabEntete = new String[] {"Nom", "PosX", "PosY"};
 
-        this.tableModel      = new DefaultTableModel(this.frame.getTabDonnees(), tabEntete);
+        this.tableModel      = new DefaultTableModel(this.frame.getTabDonnees(),  this.frame.getTabEntetes());
 		this.tblVille        = new JTable     (this.tableModel);
         this.spGrilleDonnees = new JScrollPane( this.tblVille );
         this.tblVille.setFillsViewportHeight(true);
@@ -48,47 +47,28 @@ public class PanelTabVille extends JPanel implements ActionListener
 		this.btnModif.addActionListener(this);
 	}
 
-	public int  getLigneSelectioner   (){return this.tblVille.getSelectedRow   ();}
-	public int  getColonneSelectionner(){return this.tblVille.getSelectedColumn();}
+	public int  getLigneSelectioner   (){return this.tblVille.getSelectedRow   ();} //Retourne un int ligne selectionner
+	public int  getColonneSelectionner(){return this.tblVille.getSelectedColumn();} //Retourne un int Colonne selectionner
 
 	public DefaultTableModel getTableModel() {return this.tableModel;}
 	public void              majTabDonnees() {this.tblVille.setModel(new GrilleDonneesModel(ctrl));}
 
 	public void modifier(Object value, int row, int col) {this.tblVille.setValueAt(value, row, col);}
 
+	//Methode pour modifier PosX et PosY du tableau et met a jour la frame puis ecrit les modif dans le .txt
 	public void actionPerformed(ActionEvent a)
 	{
-		System.out.println(this.tblVille.getValueAt(0, 0));
-		try {
-			Scanner scanner; 
-					scanner = new Scanner(new File("Ex3/controleur/Sauvegarde.txt"));
-					System.out.println("Scan en cours 3");
+		Ville villeSelectionnee = this.ctrl.getVille(this.getLigneSelectioner());
 
-			int cpt = 0;
+        String posXValue = (String) this.tblVille.getValueAt(this.getLigneSelectioner(), 1);
+        int posX = Integer.parseInt(posXValue);
+        villeSelectionnee.setPosX(posX);
 
-			while (scanner.hasNextLine()) 
-			{
-				String line = scanner.nextLine();
-				String[] tabDonnees = line.split("\t");
-				System.out.println(line);
-				if (!tabDonnees[1].equals(this.tblVille.getValueAt(cpt++, 0))) 
-				{
-					for(int i = 0; i<ctrl.getListeVille().size();i++)
-					{
-						System.out.println(ctrl.getListeVille().get(i).getNomVille());
-					}
+        String posYValue = (String) this.tblVille.getValueAt(this.getLigneSelectioner(), 2);
+        int posY = Integer.parseInt(posYValue);
+        villeSelectionnee.setPosY(posY);
 
-					System.out.println("aaaaa");
-					ctrl.modifierListeVille(tabDonnees[1], Ville.CreerVille(tabDonnees[1],Integer.parseInt(tabDonnees[2]), Integer.parseInt(tabDonnees[3])));
-					ctrl.ecriture();
-
-					
-					majTabDonnees();			
-					return ;
-				} 
-			}
-			scanner.close();
-		}
-		catch(Exception e){}
+        ctrl.majIhm();
+        ctrl.ecriture();
 	}
 }

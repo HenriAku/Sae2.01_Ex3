@@ -1,10 +1,22 @@
-# Sae2.01_Ex3
-# Les routes 
+### Sae2.01_Ex3
 
+## Groupe
+[**Rougeolle Henri **]
+[**Yachir    Yanis **]
+[**Bouquet   Jules **]
 
+# Réseau de routes 
 Ce projet est realiser en groupe de 3 ,
 il a pour but de crée une application pour consevoir des reseau routier.
 
+## Lancer l'application 
+Aller dans le dossier Ex3
+'''javac @compile.list '''
+
+Puis faite cd .. pour revenir en arriere
+'''java Ex3.controleur.Controleur '''
+
+# Informtion
 Nous avons dessiner une maquette ou il y a 3 frame,
 une principale ou nous pourrons y retrouver la "MAP" un graph cree grace au route et ville.
 Une frame qui s'ouvre en appuyent sur l'ongler "Ajouter" et sur "VILLE" , elle sert a enregister 

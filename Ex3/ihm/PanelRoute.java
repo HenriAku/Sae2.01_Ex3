@@ -101,8 +101,10 @@ public class PanelRoute extends JPanel implements ActionListener
             try {
                 int nbtroncons = Integer.parseInt(this.txtTroncon.getText());
     
-                if (nbtroncons < 0 || nbtroncons > 10) {
-                    this.lblErreur.setText("nbtroncons est Erroné.");
+                //check si le nbtroncons entrez est correcte
+                if (nbtroncons < 0 || nbtroncons > 10) 
+                {
+                    this.lblErreur.setText("nbtroncons est Erroné."); //msg d'erreur afficher sur la frame
                 } else {
                     this.lblErreur.setText("Route");
                     //recupere les ville des JcomboBox
@@ -115,16 +117,14 @@ public class PanelRoute extends JPanel implements ActionListener
 					model.addRow(new Object[]{this.txtTroncon.getText(), depart, arrive});
 					frame.majTabDonnees();
                 }
-            } catch (NumberFormatException ex) {
-                this.lblErreur.setText("Nombre de tronçons invalide.");
-                System.out.println(Integer.parseInt(this.lblTroncon.getText()));
-            }
+            } catch (NumberFormatException ex) { this.lblErreur.setText("Nombre de tronçons invalide.");}
         } 
 
         if (e.getSource() == this.btnTer)
-        {
-            this.ctrl.ecriture();
-            this.frame.setVisible(false);
-        }
+		{
+			this.ctrl.ecriture();           //Ajoute les Route dans le fichier .txt
+			this.frame.setVisible(false); //Close la frame
+			ctrl.majIhm();				    // met a jour la frame ou dessiner les Routes
+		}
     }
 }

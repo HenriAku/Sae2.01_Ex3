@@ -46,7 +46,8 @@ public class FrameRoute extends JFrame
         this.pack();
     }
 
-    public Object[][]        getTabDonnees() {return this.table.getTabDonnees ();}
-    public void              majTabDonnees() {this.panelTabRoute.majTabDonnees();}
+    public String[]          getTabEntetes() {return this.table.getTabEntetes ();} //Methodes qui retourne un tableau String nom des colonne 
+    public Object[][]        getTabDonnees() {return this.table.getTabDonnees ();} //Methodes qui retourne un tableau d'objet (info des route)
+    public void              majTabDonnees() {this.panelTabRoute.majTabDonnees();} //Methodes pour mettre a jour les donner des route
     public DefaultTableModel getTableModel() {return this.panelTabRoute.getTableModel();}
 }

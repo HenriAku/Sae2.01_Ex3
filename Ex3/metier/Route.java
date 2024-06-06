@@ -20,6 +20,7 @@ public class Route
 		
 		return new Route(nbtroncons, villeD, villeA);
 	}
+	
 
 	private Route(int nbtroncons, Ville villeD, Ville villeA)
 	{

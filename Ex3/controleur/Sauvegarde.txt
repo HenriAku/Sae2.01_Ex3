@@ -1,21 +1,12 @@
-Ville	Lyon	66	55	1
-Ville	paris	15	46	2
-Ville	Lyon	20	20	3
-Ville	Paris	40	40	4
-Ville	Nice	60	60	5
-Ville	PPPP	898	55	6
-Ville	Yanis	900	100	7
-Ville	Henri	100	100	8
-Ville	GrosCaca	0	0	9
-Ville	GrosCaca	1000	800	10
-Ville	OUI	99	88	11
-Ville	Lyon	55	5	12
-Ville	Havre	666	700	13
-Ville	Test1	555	400	14
-Route	1	2	5
-Route	5	3	2
-Route	6	1	4
-Route	5	13	14
-Route	5	9	7
-Route	5	1	1
-Route	5	5	7
+Ville	cPasSaEft	78	374	1
+Ville	Beaumont-Le-Roger	444	473	2
+Ville	Alger	505	302	3
+Ville	Paname	328	348	4
+Ville	DieppeMonCul	621	142	5
+Ville	Test1	0	0	6
+Ville	Test2	624	336	7
+Ville	Test3	812	734	8
+Route	3	1	2
+Route	4	2	3
+Route	2	2	4
+Route	1	5	1
