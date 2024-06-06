@@ -1,7 +1,7 @@
 /**************************
- * Rougeolle Henri
- * Yachir    Yanis
- * Bouquet   Jules
+ * @auther Rougeolle Henri
+ * @auther Yachir    Yanis
+ * @auther Bouquet   Jules
  **************************/
 
 package Ex3.ihm;
@@ -97,9 +97,18 @@ public class PanelElement extends JPanel implements ActionListener
 				//check si les coords rentre sont correcte
 				if (posX < 0 || posX > 1000 || posY < 0 || posY > 800 ) 
 				{
-					this.lblErreur.setText("PosX ou PosY est Erroné.");//msg d'erreur afficher sur la frame 
+					this.lblErreur.setText("PosX ou PosY est Erroné.");
+					this.lblErreur.setForeground(new Color(255,0,0));
+					//msg d'erreur afficher sur la frame 
 				}else if ( this.txtNom.getText().length()==0) //check si le nom est > 0 == a pas de nom de ville
+				{
 					this.lblErreur.setText("Un des Champs est manquant.");
+					this.lblErreur.setForeground(new Color(255,0,0));
+				}else if (this.ctrl.villeExiste(this.txtNom.getText())) 
+				{
+					this.lblErreur.setText("Nom de ville déja utilisée.");
+					this.lblErreur.setForeground(new Color(255,0,0));
+				}
 				else
 				{
 					//ajoute une ville 
@@ -109,8 +118,10 @@ public class PanelElement extends JPanel implements ActionListener
 					fV.majTabDonnees(); //met ajour le tableau des villes
 					this.lblErreur.setText("");
 				}
-			} catch (NumberFormatException a) {
+			} catch (NumberFormatException a) 
+			{
 				this.lblErreur.setText("Un des Champs est manquant.");
+				this.lblErreur.setForeground(new Color(255,0,0));
 			}
 		}
 		

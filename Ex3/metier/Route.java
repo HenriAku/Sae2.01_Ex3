@@ -1,7 +1,7 @@
 /**************************
- * Rougeolle Henri
- * Yachir    Yanis
- * Bouquet   Jules
+ * @auther Rougeolle Henri
+ * @auther Yachir    Yanis
+ * @auther Bouquet   Jules
  **************************/
 package Ex3.metier;
 

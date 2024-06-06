@@ -1,3 +1,8 @@
+/**************************
+ * @auther Rougeolle Henri
+ * @auther Yachir    Yanis
+ * @auther Bouquet   Jules
+ **************************/
 package Ex3.ihm;
 
 import java.util.List;

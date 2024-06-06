@@ -150,6 +150,26 @@ public class Controleur
 		}
 		return false;
 	}
+
+	public boolean routeExiste(int villeD, int villeA)
+    {
+        for (int i = 0; i < listeRoutes.size(); i++) 
+        {
+            if (listeRoutes.get(i).getVilleD().equals(listeVilles.get(villeD)) && listeRoutes.get(i).getVilleA().equals(listeVilles.get(villeA))) 
+                return true;
+        }
+        return false;
+    }
+
+	public boolean villeExiste(String nomVille)
+    {
+        for (int i = 0; i < listeVilles.size(); i++) 
+        {
+            if (listeVilles.get(i).getNomVille().equals(nomVille)) 
+                return true;
+        }
+        return false;
+    }
 	
 	public static void main(String[] args) 
 	{

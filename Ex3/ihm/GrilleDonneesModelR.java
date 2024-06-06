@@ -1,3 +1,8 @@
+/**************************
+ * @auther Rougeolle Henri
+ * @auther Yachir    Yanis
+ * @auther Bouquet   Jules
+ **************************/
 package Ex3.ihm;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -23,7 +28,7 @@ public class GrilleDonneesModelR extends AbstractTableModel
 		}
 
 		//Tableau pour les noms des colonnes
-		this.tabEntetes = new String[] {"Nom", "PosX", "PosY"};
+        this.tabEntetes = new String[] {"Nombre de tronçons", "Ville de départ", "Ville d'arrivée"};
 	}
     
 	public String[]   getTabEntetes()                  {return tabEntetes;                      } //Retourne le tableau String des nom des Colonne
