@@ -1,9 +1,9 @@
 ### Sae2.01_Ex3
 
 ## Groupe
-[**Rougeolle Henri **]
-[**Yachir    Yanis **]
-[**Bouquet   Jules **]
+Rougeolle Henri 
+Yachir    Yanis 
+Bouquet   Jules 
 
 # Réseau de routes 
 Ce projet est realiser en groupe de 3 ,
